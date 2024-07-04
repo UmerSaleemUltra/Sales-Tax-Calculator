@@ -20,21 +20,22 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 100%;
+            width: 90%;
             max-width: 600px;
         }
         .calculator-container h1 {
             margin-bottom: 20px;
-        
         }
         .input-group {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             margin: 10px 0;
         }
         .input-group div {
-            width: 48%;
+            flex: 1 1 48%;
             position: relative;
+            margin: 5px 0;
         }
         .input-group div img {
             position: absolute;
@@ -43,23 +44,16 @@
             width: 24px;
             height: 24px;
         }
-        .input-group select{
-            width: 300px;
+        .input-group select, .input-group input {
+            width: calc(100% - 40px);
             padding: 10px 40px;
             border: 1px solid #ccc;
             border-radius: 5px;
-        }
-        
-
-        .input-group input {
-       width: 200px;
-            padding: 10px 40px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            box-sizing: border-box;
         }
         .calculate-button {
             padding: 10px 20px;
-            margin: 20px;
+            margin: 20px 0;
             border: none;
             border-radius: 5px;
             background-color: #007bff;
@@ -73,6 +67,15 @@
         .result {
             margin-top: 20px;
             font-size: 18px;
+        }
+        @media (max-width: 600px) {
+            .input-group {
+                flex-direction: column;
+            }
+            .input-group div {
+                flex: 1 1 100%;
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
@@ -137,7 +140,6 @@
                 </select>
             </div>
             <div>
-                <br>
                 <img src="sales-revenue-icon.svg" alt="Revenue Icon">
                 <input type="number" id="revenue" placeholder="Enter total revenue from Sales ($)">
             </div>
